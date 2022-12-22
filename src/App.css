@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Bungee', cursive;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: black;
+}
+
+.game_ui {
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+}
+
+.menu_bg_img {
+  background-color: #0F4D84;
+  background-image:
+    repeating-linear-gradient(120deg, rgba(255, 255, 255, .1), transparent 1px, transparent 10000px),
+    repeating-linear-gradient(60deg, rgba(255, 255, 255, .1), rgba(255, 255, 255, .1) 1px, transparent 1px, transparent 10000px),
+    linear-gradient(60deg, rgba(0, 0, 0, .1) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, .1) 75%, rgba(0, 0, 0, .1)),
+    linear-gradient(120deg, rgba(0, 0, 0, .1) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, .1) 75%, rgba(0, 0, 0, .1));
+  background-size: 180px 305px;
+
+  height: calc(100vh - 56px);
+  padding: 5%;
+}
+
+.menu_center {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.menu_heading {
+  margin-bottom: 20px;
+  color: white;
+  text-shadow: -1px 0 1px #582E00,
+    1px 0 1px #582E00,
+    0 -1px 1px #582E00,
+    0 4px 1px #582E00,
+    -2px 4px 1px #582E00,
+    2px 3px 2px #582E00;
+}
+
+.menu_heading h1 {
+  font-size: 60px;
+}
+
+.menu_heading h1:nth-child(2) {
+  transform: translateX(-50px);
+}
+
+.menu_heading h1:nth-child(3) {
+  transform: translateX(50px);
+}
+
+/* Google */
+/* Button styles */
+.couche1 {
+  position: relative;
+  -webkit-border-radius: 11px;
+  -moz-border-radius: 11px;
+  border-radius: 11px;
+  width: 300px;
+  height: 100px;
+  background: black;
+  -webkit-box-shadow: 0px 11px 2px #301C09;
+  -moz-box-shadow: 0px 11px 2px #301C09;
+  box-shadow: 0px 11px 2px #301C09;
+  cursor: pointer;
+}
+
+.couche2 {
+  position: absolute;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  width: 294px;
+  height: 94px;
+  margin-top: 3px;
+  margin-left: 3px;
+  background: #FDA80D;
+  -webkit-box-shadow: 0px 9px 0px #AF6B06;
+  -moz-box-shadow: 0px 9px 0px #AF6B06;
+  box-shadow: 0px 9px 0px #AF6B06;
+
+}
+
+.couche23 {
+  position: absolute;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  width: 292px;
+  height: 80px;
+  margin-top: 5px;
+  margin-left: 1px;
+  -webkit-box-shadow: 0px -4px 5px 0px #FFDC33;
+  -moz-box-shadow: 0px -4px 5px 0px #FFDC33;
+  box-shadow: 0px -4px 5px 0px #FFDC33;
+
+
+}
+
+.couche3 {
+  position: absolute;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  margin-top: 0px;
+  margin-left: 5px;
+  width: 281px;
+  height: 82px;
+  background: rgba(255, 187, 42, 1);
+  -webkit-box-shadow: 0px 4px 3px 0px #FE8906;
+  -moz-box-shadow: 0px 4px 3px 0px #FE8906;
+  box-shadow: 0px 4px 3px 0px #FE8906;
+
+}
+
+.couche4 {
+  position: absolute;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-left: 3px;
+  width: 275px;
+  height: 38px;
+  background: #FFD053;
+
+}
+
+.couche5 {
+  position: absolute;
+  -webkit-border-radius: 45%;
+  -moz-border-radius: 45%;
+  border-radius: 45%;
+  margin-top: 0px;
+  margin-left: 267px;
+  width: 7px;
+  height: 9px;
+  background: #FFF1B6;
+
+}
+
+.battle {
+  position: absolute;
+  font-family: "bungee", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #FFFFCC;
+  font-size: 1.7em;
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+  text-shadow: -1px 0 1px #582E00,
+    1px 0 1px #582E00,
+    0 -1px 1px #582E00,
+    0 4px 1px #582E00,
+    -2px 4px 1px #582E00,
+    2px 3px 2px #582E00;
+}
+
+/*effects*/
+.couche1:active {
+  width: 280px;
+  height: 95px;
+}
+
+.couche1:active .couche2 {
+  width: 274px;
+  height: 89px;
+}
+
+.couche1:active .couche23 {
+  width: 272px;
+  height: 75px;
+}
+
+.couche1:active .couche3 {
+  width: 261px;
+  height: 77px;
+}
+
+.couche1:active .couche4 {
+  width: 255px;
+  height: 32px;
+}
+
+.couche1:active .couche5 {
+  width: 6px;
+  height: 8px;
+  margin-left: 248px;
+}
+
+.couche1:active .battle {
+  margin-top: 15px;
+}
+
+
+
+/*red*/
+
+
+#red2 {
+  background: #FC3632;
+  -webkit-box-shadow: 0px 9px 0px #9C1814;
+  -moz-box-shadow: 0px 9px 0px #9C1814;
+  box-shadow: 0px 9px 0px #9C1814;
+
+}
+
+#red23 {
+  -webkit-box-shadow: 0px -4px 5px 0px #FE5970;
+  -moz-box-shadow: 0px -4px 5px 0px #FE5970;
+  box-shadow: 0px -4px 5px 0px #FE5970;
+
+}
+
+#red3 {
+  background: #FC4262;
+  -webkit-box-shadow: 0px 4px 3px 0px #E42625;
+  -moz-box-shadow: 0px 4px 3px 0px #E42625;
+  box-shadow: 0px 4px 3px 0px #E42625;
+
+}
+
+#red4 {
+  background: #FF6666;
+
+}
+
+#red5 {
+  background: #FFC8C8;
+
+
+}
+
+#battle_red {
+  text-shadow: -1px 0 1px #990000,
+    1px 0 1px #990000,
+    0 -1px 1px #990000,
+    0 4px 1px #990000,
+    -2px 4px 1px #990000,
+    2px 3px 2px #990000;
+  color: #FFFFCC;
+}
+
+
+
+
+/*green*/
+
+#green2 {
+  background: #09CC48;
+  -webkit-box-shadow: 0px 9px 0px #0D8F23;
+  -moz-box-shadow: 0px 9px 0px #0D8F23;
+  box-shadow: 0px 9px 0px #0D8F23;
+
+}
+
+#green23 {
+  -webkit-box-shadow: 0px -4px 5px 0px #60DA61;
+  -moz-box-shadow: 0px -4px 5px 0px #60DA61;
+  box-shadow: 0px -4px 5px 0px #60DA61;
+
+}
+
+#green3 {
+  background: #30ED45;
+  -webkit-box-shadow: 0px 4px 3px 0px #25D039;
+  -moz-box-shadow: 0px 4px 3px 0px #25D039;
+  box-shadow: 0px 4px 3px 0px #25D039;
+
+}
+
+#green4 {
+  background: #50FF65;
+
+}
+
+#green5 {
+  background: #D9FFFF;
+
+
+}
+
+#battle_green {
+  text-shadow: -1px 0 1px #005F00,
+    1px 0 1px #005F00,
+    0 -1px 1px #005F00,
+    0 4px 1px #005F00,
+    -2px 4px 1px #005F00,
+    2px 3px 2px #005F00;
+  color: #FEFEFE;
+}
+
+
+
+
+/*blue*/
+
+#blue2 {
+  background: #2199FF;
+  -webkit-box-shadow: 0px 9px 0px #004FA5;
+  -moz-box-shadow: 0px 9px 0px #004FA5;
+  box-shadow: 0px 9px 0px #004FA5;
+
+}
+
+#blue23 {
+  -webkit-box-shadow: 0px -4px 5px 0px #3EBAFF;
+  -moz-box-shadow: 0px -4px 5px 0px #3EBAFF;
+  box-shadow: 0px -4px 5px 0px #3EBAFF;
+
+}
+
+#blue3 {
+  background: #4CADFF;
+  -webkit-box-shadow: 0px 4px 3px 0px #2181FC;
+  -moz-box-shadow: 0px 4px 3px 0px #2181FC;
+  box-shadow: 0px 4px 3px 0px #2181FC;
+
+}
+
+#blue4 {
+  background: #67BCFF;
+
+}
+
+#blue5 {
+  background: #D9FFFF;
+
+
+}
+
+#battle_blue {
+  text-shadow: -1px 0 1px #002F83,
+    1px 0 1px #002F83,
+    0 -1px 1px #002F83,
+    0 4px 1px #002F83,
+    -2px 4px 1px #002F83,
+    2px 3px 2px #002F83;
+  color: #FEFEFE;
+}
