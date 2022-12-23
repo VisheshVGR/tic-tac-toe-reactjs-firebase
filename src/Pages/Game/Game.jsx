@@ -112,7 +112,7 @@ const Game = () => {
                             <IconButton sx={{ color: "black" }} aria-label="Home" onClick={() => navigate("/")}>
                                 <HomeIcon />
                             </IconButton>
-                            <Button color="warning" variant="text" onClick={() => navigator.clipboard.writeText(current_game_id)}>{current_game_id} <ContentCopyIcon /></Button>
+                            <Button color="warning" variant="text" onClick={() => window.shareGameCode(current_game_id)}>{current_game_id} <ContentCopyIcon /></Button>
                         </Box>
                         <Typography variant="h4" sx={{
                             display: "flex",
@@ -134,7 +134,7 @@ const Game = () => {
                     <IconButton sx={{ color: "white" }} aria-label="Home" onClick={() => navigate("/")}>
                         <HomeIcon />
                     </IconButton>
-                    <Button color="warning" variant="text" onClick={() => navigator.clipboard.writeText(current_game_id)}>{current_game_id} <ContentCopyIcon /></Button>
+                    <Button color="warning" variant="text" onClick={() => window.shareGameCode(current_game_id)}>{current_game_id} <ContentCopyIcon /></Button>
                 </Box>
                 <Box sx={{
                     background: " linear-gradient(90deg, rgba(44,141,255,1) 0%, rgba(255,255,255,0) 100%, rgba(0,212,255,0) 100%)",
@@ -203,7 +203,7 @@ const Game = () => {
                                     {
                                         currentGameInfo.player_two.displayName === "" ?
                                             <>
-                                                <Button size="large" variant="text" onClick={() => navigator.clipboard.writeText(current_game_id)}>Invite Player</Button>
+                                                <Button size="large" variant="text" onClick={() => window.shareGameCode(current_game_id)}>Invite Player</Button>
                                             </> :
                                             currentGameInfo.player_one_turn !== myTurn ?
                                                 <>

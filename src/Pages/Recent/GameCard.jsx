@@ -53,8 +53,8 @@ const GameCard = ({ gameData, userInfo }) => {
                                     {
                                         gameData.player_two.displayName === "" ?
                                             <>
-                                                Code : 
-                                                <Button size="large" variant="text" onClick={() => navigator.clipboard.writeText(gameData.game_id)}>{gameData.game_id}</Button>
+                                                Code :
+                                                <Button size="large" variant="text" onClick={() => window.shareGameCode(gameData.game_id)}>{gameData.game_id}</Button>
 
                                             </> :
                                             gameData.player_one_turn !== myTurn ?
