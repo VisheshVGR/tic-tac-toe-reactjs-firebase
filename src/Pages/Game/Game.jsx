@@ -156,14 +156,13 @@ const Game = () => {
                 </Box>
                 <Box sx={{
                     background: " linear-gradient(270deg, rgba(255,79,79,1) 0%, rgba(255,255,255,0) 100%, rgba(0,212,255,0) 100%)",
-                    paddingRight: "5%",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "end",
                     gap: "10px",
                     color: "white",
                     padding: "10px 5% 10px 0",
-                    overflow: "auto"
+                    overflow: "auto",
                 }}>
                     <Typography variant="caption" component="p" sx={{ color: "#bbb" }}>
                         {currentGameInfo.player_two.email}

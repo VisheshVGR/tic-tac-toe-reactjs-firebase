@@ -60,7 +60,7 @@ const Home = () => {
 
     return (
         <>
-            <Box className="menu_bg_img menu_outer" sx={{ position: "relative" }}>
+            <Box className="menu_bg_img menu_outer" sx={{ position: "relative", overflow: "hidden" }}>
                 <Box sx={{
                     color: "white",
                     position: "absolute",
