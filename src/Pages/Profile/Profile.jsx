@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 
 const Profile = () => {
-    const { LoginUsingGoogle, Logout, userInfo } = useContext(UserInfoContext);
+    const { LoginUsingGoogle, LoginUsingFacebook, Logout, userInfo } = useContext(UserInfoContext);
     console.log(userInfo);
 
     return (
@@ -23,6 +23,7 @@ const Profile = () => {
                         !userInfo ?
                             <>
                                 <Button variant="contained" size="large" onClick={LoginUsingGoogle}>Login using Google</Button>
+                                {/* <Button variant="contained" size="large" onClick={LoginUsingFacebook}>Login using Facebook</Button> */}
                             </>
                             : <>
                                 <Avatar sx={{ margin: "0 auto", height: "100px", width: "100px" }} alt={userInfo.displayName} src={userInfo.photoURL} />
@@ -44,7 +45,7 @@ const Profile = () => {
                                     variant="outlined"
                                     sx={{ background: "white", width: "100%" }}
                                 />
-                                
+
 
                                 <Button variant="contained" color="error" sx={{ width: "100%" }} size="large" onClick={Logout}>Logout</Button>
                             </>

@@ -85,9 +85,46 @@ const Game = () => {
 
     }, [currentGameInfo, current_game_id, userInfo])
 
+    const ResetGame = () => {
+        const gameRef = doc(db, 'tic-tac-toe-games', current_game_id);
+        updateDoc(gameRef, {
+            winner: null,
+            board: Array(9).fill(null)
+        });
+    }
+
+
+
     if (infoScreenMessage) {
         return (
-            <>{infoScreenMessage}</>
+            <>
+                <Box className="game_ui" sx={{ background: `url(${GameBg})`, justifyContent: "center" }}>
+                    <Box sx={{
+                        margin: "5%",
+                        padding: "5%",
+                        borderRadius: "20px",
+                        display: "flex",
+                        justifyContent: "center",
+                        flexFlow: "column nowrap",
+                        alignItems: "center",
+                        background: "linear-gradient(148deg, rgba(0,170,255,1) 0%,rgba(255,255,255,1) 50% , rgba(239,80,80,1) 100%) "
+                    }}>
+                        <Box sx={{ display: "flex", justifyContent: 'space-between', width: "100%" }}>
+                            <IconButton sx={{ color: "black" }} aria-label="Home" onClick={() => navigate("/")}>
+                                <HomeIcon />
+                            </IconButton>
+                            <Button color="warning" variant="text" onClick={() => navigator.clipboard.writeText(current_game_id)}>{current_game_id} <ContentCopyIcon /></Button>
+                        </Box>
+                        <Typography variant="h4" sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                        }} component="div">
+                            {infoScreenMessage}
+                        </Typography>
+                    </Box>
+                </Box>
+            </>
         )
     }
 
@@ -109,6 +146,7 @@ const Game = () => {
                     gap: "10px",
                     color: "white",
                     padding: "10px 0 10px 5%",
+                    overflow: "auto"
                 }}>
                     <Avatar alt={currentGameInfo.player_one.displayName} src={currentGameInfo.player_one.photoURL} />
                     {currentGameInfo.player_one.displayName} |
@@ -125,6 +163,7 @@ const Game = () => {
                     gap: "10px",
                     color: "white",
                     padding: "10px 5% 10px 0",
+                    overflow: "auto"
                 }}>
                     <Typography variant="caption" component="p" sx={{ color: "#bbb" }}>
                         {currentGameInfo.player_two.email}
@@ -157,6 +196,7 @@ const Game = () => {
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
+                        flexFlow: "column nowrap"
                     }} component="div">
 
                         {
@@ -165,7 +205,7 @@ const Game = () => {
                                     {
                                         currentGameInfo.player_two.displayName === "" ?
                                             <>
-                                                <Button sx={{ color: "white" }} variant="text" onClick={() => navigator.clipboard.writeText(current_game_id)}>Invite Player</Button>
+                                                <Button size="large" variant="text" onClick={() => navigator.clipboard.writeText(current_game_id)}>Invite Player</Button>
                                             </> :
                                             currentGameInfo.player_one_turn !== myTurn ?
                                                 <>
@@ -195,6 +235,8 @@ const Game = () => {
                                                 <span style={{ color: "#4caf50" }}>You won!</span> :
                                                 <span style={{ color: "#ef5350" }}>Opponent won!</span>
                                     }
+                                    <Button color="info" variant="contained" onClick={ResetGame}>Play Again!</Button>
+
                                 </>
 
                         }

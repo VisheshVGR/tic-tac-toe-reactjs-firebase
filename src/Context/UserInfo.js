@@ -1,8 +1,9 @@
 import React, { useState, useEffect, createContext } from "react";
-import { GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
+import { GoogleAuthProvider, FacebookAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../Firebase/Firebase-config"
 
 const GoogleProvider = new GoogleAuthProvider();
+const FacebookProvider = new FacebookAuthProvider();
 
 const UserInfoContext = createContext();
 
@@ -30,6 +31,16 @@ const UserInfo = ({ children }) => {
             });
     }
 
+    const LoginUsingFacebook = () => {
+        signInWithPopup(auth, FacebookProvider)
+            .then((result) => {
+                console.log("User is Signed in using Facebook!");
+            }).catch((error) => {
+                alert("Error enountered!");
+                console.log(error);
+            });
+    }
+
     const Logout = () => {
         signOut(auth).then(() => {
             console.log("User is Signed Out!");
@@ -41,7 +52,7 @@ const UserInfo = ({ children }) => {
 
 
     return (
-        <UserInfoContext.Provider value={{ LoginUsingGoogle, Logout, userInfo }}>
+        <UserInfoContext.Provider value={{ LoginUsingGoogle, LoginUsingFacebook, Logout, userInfo }}>
             {children}
         </UserInfoContext.Provider>
     )

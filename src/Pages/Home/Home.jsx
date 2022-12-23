@@ -9,6 +9,8 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import InfoIcon from '@mui/icons-material/Info';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 const Home = () => {
     const { userInfo } = useContext(UserInfoContext);
@@ -58,32 +60,57 @@ const Home = () => {
 
     return (
         <>
-            <Box className="menu_bg_img menu_center">
-                <div className="menu_heading">
-                    <Typography variant="h1" component="h1">Tic</Typography>
-                    <Typography variant="h1" component="h1">Tac</Typography>
-                    <Typography variant="h1" component="h1">Toe</Typography>
-                </div>
-                <div className="menu_center">
-                    {
-                        userInfo ?
-                            <>
-                                <Button onClick={StartNewGame} color="warning" variant="contained" size="large" sx={{ width: "100%" }}>New Game</Button>
-                                <TextField
-                                    value={gameCode}
-                                    onChange={e => setGameCode(e.target.value)}
-                                    variant="outlined"
-                                    label="Enter Game Code"
-                                    sx={{ "& input": { background: "white" } }}
-                                    color="info"
-                                />
-                                <Button onClick={JoinGameCode} color="info" variant="contained" size="large" sx={{ width: "100%" }}>Join Code</Button>
-                            </>
-                            :
-                            <Button onClick={() => navigate("/Profile")} color="warning" variant="contained" size="large" sx={{ width: "100%" }}>Login to play</Button>
+            <Box className="menu_bg_img menu_outer" sx={{ position: "relative" }}>
+                <Box sx={{
+                    color: "white",
+                    position: "absolute",
+                    right: "0",
+                    top: "0",
+                    background: "black",
+                    width: "100px",
+                    height: "100px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "end",
+                    transform: " translate(50px, -50px) rotateZ(45deg)",
+                    padding: "10px",
+                    cursor: "pointer",
+                }}
+                    onClick={() => window.open('https://github.com/VisheshVGR/tic-tac-toe-reactjs-firebase')}
+                >
+                    <GitHubIcon />
+                </Box>
+                <Box className="menu_center" sx={{ flexGrow: "1" }}>
 
-                    }
-                </div>
+                    <div className="menu_heading">
+                        <Typography variant="h1" component="h1">Tic</Typography>
+                        <Typography variant="h1" component="h1">Tac</Typography>
+                        <Typography variant="h1" component="h1">Toe</Typography>
+                    </div>
+                    <div className="menu_center">
+                        {
+                            userInfo ?
+                                <>
+                                    <Button onClick={StartNewGame} color="warning" variant="contained" size="large" sx={{ width: "100%" }}>New Game</Button>
+                                    <TextField
+                                        value={gameCode}
+                                        onChange={e => setGameCode(e.target.value)}
+                                        variant="outlined"
+                                        label="Enter Game Code"
+                                        sx={{ "& input": { background: "white" } }}
+                                        color="info"
+                                    />
+                                    <Button onClick={JoinGameCode} color="info" variant="contained" size="large" sx={{ width: "100%" }}>Join Code</Button>
+                                </>
+                                :
+                                <Button onClick={() => navigate("/Profile")} color="warning" variant="contained" size="large" sx={{ width: "100%" }}>Login to play</Button>
+
+                        }
+                    </div>
+                </Box>
+                <Box>
+                    <Button onClick={() => window.open('https://en.wikipedia.org/wiki/Tic-tac-toe')} color="info" variant="text" sx={{ width: "100%", color: "white" }}><InfoIcon /> How To Play</Button>
+                </Box>
 
             </Box>
 

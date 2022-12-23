@@ -54,7 +54,9 @@ const GameCard = ({ gameData, userInfo }) => {
                                     {
                                         gameData.player_two.displayName === "" ?
                                             <>
-                                                Code : {gameData.game_id}
+                                                Code : 
+                                                <Button size="large" variant="text" onClick={() => navigator.clipboard.writeText(gameData.game_id)}>{gameData.game_id}</Button>
+
                                             </> :
                                             gameData.player_one_turn !== myTurn ?
                                                 <>

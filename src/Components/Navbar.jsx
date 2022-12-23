@@ -8,6 +8,7 @@ import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import CasinoIcon from '@mui/icons-material/Casino';
 import HistoryIcon from '@mui/icons-material/History';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import Avatar from '@mui/material/Avatar';
 
 const Navbar = () => {
     const { userInfo } = useContext(UserInfoContext);
@@ -45,7 +46,11 @@ const Navbar = () => {
                     userInfo &&
                     <BottomNavigationAction component={Link} to="/Recent" label="Recents" icon={<HistoryIcon />} sx={{ minWidth: "none", maxWidth: "none" }} />
                 }
-                <BottomNavigationAction component={Link} to="/Profile" label="Profile" icon={<AccountCircleIcon />} sx={{ minWidth: "none", maxWidth: "none" }} />
+                <BottomNavigationAction component={Link} to="/Profile" label="Profile" icon={
+                    userInfo && userInfo.photoURL ?
+                        <Avatar alt={userInfo.displayName} src={userInfo.photoURL} sx={{ width: "24px", height: "24px" }} /> :
+                        <AccountCircleIcon />
+                } sx={{ minWidth: "none", maxWidth: "none" }} />
             </BottomNavigation>
         </>
     )

@@ -80,6 +80,12 @@ const Recent = () => {
                             )
                         })
                     }
+                    {
+                        myGames.length === 0 &&
+                        <>
+                            <Typography sx={{ color: "white" }} variant="h6" component="p">- No match record -</Typography>
+                        </>
+                    }
                 </Box>
 
             </Box>
