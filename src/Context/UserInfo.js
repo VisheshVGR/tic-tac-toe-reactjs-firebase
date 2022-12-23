@@ -8,7 +8,7 @@ const FacebookProvider = new FacebookAuthProvider();
 const UserInfoContext = createContext();
 
 const UserInfo = ({ children }) => {
-    const [userInfo, setUserInfo] = useState(null);
+    const [userInfo, setUserInfo] = useState("Loading");
 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {

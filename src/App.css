@@ -3,6 +3,7 @@
 * {
   box-sizing: border-box;
   font-family: 'Bungee', cursive;
+  text-transform: uppercase;
 }
 
 body {
