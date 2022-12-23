@@ -178,6 +178,7 @@ const Game = () => {
                         height: "100%",
                         position: "absolute",
                         zIndex: "1",
+                        transform: "translate(-5%, -5%)",
                         display: currentGameInfo.player_one_turn === myTurn ? "none" : "block",
                     }} />
                     <Board currentGameInfo={currentGameInfo} myCard={myCard} />
