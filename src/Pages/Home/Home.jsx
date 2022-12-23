@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid'
 import { db } from "../../Firebase/Firebase-config";
 import { doc, setDoc } from "firebase/firestore";
 import { UserInfoContext } from "../../Context/UserInfo";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -12,12 +12,14 @@ import Button from '@mui/material/Button';
 import InfoIcon from '@mui/icons-material/Info';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
+
 const Home = () => {
     const { userInfo } = useContext(UserInfoContext);
     const navigate = useNavigate();
 
     const [gameCode, setGameCode] = useState("");
 
+    // start a new game
     const StartNewGame = async () => {
         const game_id = nanoid();
 
@@ -50,6 +52,7 @@ const Home = () => {
         navigate(`/Game/${game_id}`);
     }
 
+    // join game code
     const JoinGameCode = () => {
         if (gameCode === "") {
             alert("Enter game code!")

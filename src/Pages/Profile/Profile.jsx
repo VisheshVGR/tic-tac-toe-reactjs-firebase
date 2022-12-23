@@ -7,9 +7,9 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 
+
 const Profile = () => {
-    const { LoginUsingGoogle, LoginUsingFacebook, Logout, userInfo } = useContext(UserInfoContext);
-    console.log(userInfo);
+    const { LoginUsingGoogle, Logout, userInfo } = useContext(UserInfoContext);
 
     return (
         <>
@@ -18,7 +18,7 @@ const Profile = () => {
                 <Box className="menu_heading">
                     <Typography variant="h1" component="h1">{userInfo ? "Profile" : "Login"}</Typography>
                 </Box>
-                <Box sx={{ overflow: "auto", flexGrow: "1", display: "flex", flexFlow: "column nowrap", gap: "20px", justifyContent: "start", alignItems: userInfo ? "start" : "center" }}>
+                <Box sx={{ overflow: "auto", flexGrow: "1", display: "flex", flexFlow: "column nowrap", gap: "20px", justifyContent: userInfo ? "start" : "center", alignItems: userInfo ? "start" : "center" }}>
                     {
                         !userInfo ?
                             <>
@@ -47,7 +47,7 @@ const Profile = () => {
                                 />
 
 
-                                <Button variant="contained" color="error" sx={{ width: "100%", marginTop:"auto" }} size="large" onClick={Logout}>Logout</Button>
+                                <Button variant="contained" color="error" sx={{ width: "100%", marginTop: "auto" }} size="large" onClick={Logout}>Logout</Button>
                             </>
                     }
                 </Box>

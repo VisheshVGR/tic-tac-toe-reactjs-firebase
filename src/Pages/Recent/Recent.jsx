@@ -3,14 +3,11 @@ import { UserInfoContext } from "../../Context/UserInfo";
 import { db } from "../../Firebase/Firebase-config";
 import { onSnapshot, collection, query, where } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
+
 import GameCard from "./GameCard"
 
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import Avatar from '@mui/material/Avatar';
-
 
 
 const Recent = () => {
@@ -26,13 +23,12 @@ const Recent = () => {
         }
     }, [navigate, userInfo])
 
-    console.log(myGames)
+    // Loading my all played games
     useEffect(() => {
         if (!userInfo)
             return;
 
         const gamesRef = collection(db, 'tic-tac-toe-games');
-
 
         const que1 = query(gamesRef, where("player_one.uid", "==", userInfo.uid));
         const unsubscribe1 = onSnapshot(que1, (querySnapshot) => {
@@ -50,9 +46,7 @@ const Recent = () => {
                 result.push(doc.data());
             });
             setMyGames(current => [...current, ...result]);
-
         });
-
 
         return (() => {
             unsubscribe1();

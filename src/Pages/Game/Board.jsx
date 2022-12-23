@@ -13,12 +13,12 @@ const board_style = {
     "background":"rgba(255,255,255,0.7)",
 }
 
+
 const Board = ({ currentGameInfo, myCard }) => {
     const { board, game_id, player_one_turn } = currentGameInfo;
 
+    // updating cell status on click
     const handleCellClick = async (cell_no) => {
-        console.log("cell clicked is", cell_no)
-
         let updated_board = board;
         board[cell_no] = myCard;
 
@@ -29,8 +29,8 @@ const Board = ({ currentGameInfo, myCard }) => {
         });
     }
 
+    // check on every turn if someone won the game or game results in a draw
     useEffect(() => {
-
         const winnerFound = () => {
             const winnerLogic = [
                 [0, 1, 2],

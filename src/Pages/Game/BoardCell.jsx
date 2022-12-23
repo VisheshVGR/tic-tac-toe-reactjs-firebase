@@ -9,8 +9,9 @@ const board_cell_style = {
     "width": "100%",
     "border": "5px solid #FFE79E",
     "placeItems": "center",
-
 }
+
+
 const BoardCell = ({ cell_data, handleCellClick }) => {
 
     return (

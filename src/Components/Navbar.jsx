@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { UserInfoContext } from "../Context/UserInfo";
 
-
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import CasinoIcon from '@mui/icons-material/Casino';
@@ -10,12 +9,14 @@ import HistoryIcon from '@mui/icons-material/History';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Avatar from '@mui/material/Avatar';
 
+
 const Navbar = () => {
     const { userInfo } = useContext(UserInfoContext);
     const location = useLocation();
 
     const [value, setValue] = useState(0);
 
+    // setting navbar appropriately according to page open
     useEffect(() => {
         if (location.pathname === "/")
             setValue(0)
@@ -28,8 +29,6 @@ const Navbar = () => {
 
 
     }, [location.pathname])
-
-
 
     return (
         <>

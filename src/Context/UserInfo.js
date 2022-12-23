@@ -14,7 +14,6 @@ const UserInfo = ({ children }) => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUserInfo(user);
-                console.log(user);
             } else {
                 setUserInfo(null);
             }
@@ -24,9 +23,8 @@ const UserInfo = ({ children }) => {
     const LoginUsingGoogle = () => {
         signInWithPopup(auth, GoogleProvider)
             .then((result) => {
-                console.log("User is Signed in using Google!");
             }).catch((error) => {
-                alert("Error enountered!");
+                alert(error.code.substring(error.code.indexOf('/') + 1).replaceAll("-", " "));
                 console.log(error);
             });
     }
@@ -34,16 +32,14 @@ const UserInfo = ({ children }) => {
     const LoginUsingFacebook = () => {
         signInWithPopup(auth, FacebookProvider)
             .then((result) => {
-                console.log("User is Signed in using Facebook!");
             }).catch((error) => {
-                alert("Error enountered!");
+                alert(error.code.substring(error.code.indexOf('/') + 1).replaceAll("-", " "));
                 console.log(error);
             });
     }
 
     const Logout = () => {
         signOut(auth).then(() => {
-            console.log("User is Signed Out!");
         }).catch((error) => {
             alert("Error enountered!");
             console.log(error);

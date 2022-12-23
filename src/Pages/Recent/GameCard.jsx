@@ -6,10 +6,8 @@ import { db } from "../../Firebase/Firebase-config";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-
 
 
 const GameCard = ({ gameData, userInfo }) => {
@@ -29,6 +27,7 @@ const GameCard = ({ gameData, userInfo }) => {
 
     }, [gameData, userInfo])
 
+    // delete game
     const DeleteGame = async () => {
 
         await deleteDoc(doc(db, "tic-tac-toe-games", gameData.game_id));

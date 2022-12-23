@@ -12,7 +12,6 @@ import Circle from "../../Assets/circle.png"
 
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
@@ -44,7 +43,7 @@ const Game = () => {
 
         const unsub = onSnapshot(gameRef, (doc) => {
             setCurrentGameInfo(doc.data());
-            console.log("Current game: ", doc.data());
+            setInfoScreenMessage("Wrong Code!")
         });
 
         return (() => {
@@ -85,6 +84,7 @@ const Game = () => {
 
     }, [currentGameInfo, current_game_id, userInfo])
 
+    // play game again - reset board
     const ResetGame = () => {
         const gameRef = doc(db, 'tic-tac-toe-games', current_game_id);
         updateDoc(gameRef, {
@@ -93,8 +93,7 @@ const Game = () => {
         });
     }
 
-
-
+    // if there is some info or error then display it
     if (infoScreenMessage) {
         return (
             <>
@@ -130,7 +129,6 @@ const Game = () => {
 
     return (
         <>
-
             <Box className="game_ui" sx={{ background: `url(${GameBg})` }}>
                 <Box sx={{ display: "flex", justifyContent: 'space-between', padding: "5% 5% 0" }}>
                     <IconButton sx={{ color: "white" }} aria-label="Home" onClick={() => navigate("/")}>
