@@ -1,130 +1,81 @@
 # Tic Tac Toe ( ReactJS + Firebase )
-[Github Link](https://github.com/VisheshVGR/tic-tac-toe-reactjs-firebase) | [See live](https://tic-tac-toe-reactjs-firebase.vercel.app/)
-
-Tic Tac Toe is a 
-
+[GitHub Link](https://github.com/VisheshVGR/tic-tac-toe-reactjs-firebase) | [See live](https://tic-tac-toe-reactjs-firebase.vercel.app/)
+ 
 ## Table of Contents 📕
 - [Tic Tac Toe ( ReactJS + Firebase )](#tic-tac-toe--reactjs--firebase-)
   - [Table of Contents 📕](#table-of-contents-)
-- [CodeRelay-2022](#coderelay-2022)
-- [Tools and Technology](#tools-and-technology)
-- [Features](#features)
-  - [Special Features](#special-features)
-  - [Data Table Used](#data-table-used)
-  - [Student Dashboard](#student-dashboard)
-  - [Officer Dashboard](#officer-dashboard)
-  - [Admin Dashboard](#admin-dashboard)
-  - [All Complaints](#all-complaints)
-  - [Miscellaneous Pages](#miscellaneous-pages)
-    - [Home Page](#home-page)
-    - [Hostels](#hostels)
-    - [Contact Us](#contact-us)
-- [Future Work](#future-work)
+  - [About the Challenge](#about-the-challenge)
+  - [Tools and Technology](#tools-and-technology)
+  - [Features](#features)
+  - [Future Work](#future-work)
 - [Gallery](#gallery)
 - [Database Schema](#database-schema)
-# CodeRelay-2022
-* The Challenge
-	* Build a Hostel Management Portal.
-	* Essential features which were expected-
-	    * For Student-
-	        1.  Login Screen: You can either use Google authentication or just a normal email ID password.
-	        2. The page after the login screen will be a Welcome Page, with a profile button and an option to raise a complaint. 
-	        3. Raise Complaint Page: This page will contain a submission form with categories like Name Of Hostel, Category Of The Issue (cleanliness, electricity, etc.), Name Of The Person, Availability (Time), Room Number, Phone Number, and Description Of Issue.
-	    * For Administration
-	        1. The website will have the same interface with the only difference being for the complaint section. 
-            2. The admin can see the complaints lodged by students.
-	* Detailed View of all the Problem Statement can be found [here](https://drive.google.com/file/d/1HLIcM1jE_TwxM7tiwRn-yQ41rGXy6Q3K/view?usp=sharing)
-
-# Tools and Technology
+ 
+## About the Challenge
+[Challenge Link](https://cedar-cub-c87.notion.site/Assignment-2-Full-Stack-Developer-the-homework-app-15daf2f75128429c98a5e2c3c9449ced)
+* Build an asynchronous multiplayer Tic Tac Toe game.
+* Essential features which were expected-
+    * A playable mobile web frontend using ReactJS with making proper use of -
+        * State management
+        * Hooks
+* This game should support - 
+    * User management
+        * Users can log in / register using basic info
+        * Email id & username are unique per user
+        * Once logged in, the user stays logged in until the cache is cleared from the browser
+    * Starting an asynchronous game with anyone via their email id.
+        * I can only have one ongoing game with any other user
+        * Until that game is finished, I can’t start another game with the same user
+        * I can start a game with anyone using their email id
+        * As soon as the game is created, the initiator gets the first move & other user’s home page reflects the game
+        * Every player sees ```X``` as their piece & ```O``` as the other player’s piece in every game
+    * Gameplay
+        * Should support standard 3x3 Tic Tac Toe game
+        * The first player to put their piece in 3 consecutive squares wins the game
+        * The game can be drawn too
+        * These are the possible game states at any point in the game
+            * Won
+            * Drawn
+            * Waiting for another player to play
+            * Waiting for you to play
+    * Home page
+        * As soon as the games are started, a card is created for every game
+        * These cards are sorted in descending order of their last updated time
+            * Update only happens when the state of the game changes i.e.
+                * When either players plays or
+                * Game finishes
+    * Layout
+        * For the scope of this project, only mobile web layout shall be supported
+        * [Figma Design Template](https://www.figma.com/file/w2TwxCIzgbVEsUOPVbYgOL?node-id=0:1)
+ 
+## Tools and Technology
 * The Front-end is created in **React.js** and **Material UI**. 
-* For creating Back-end, we used **Firebase**. For the database, we used Google Firestore. We created a very flexible and versatile foundation for our codebase, so that in future its functionality could be easily extended and new agents could be easily added into it.
-* For hosting we used **Vercel** which is a cloud platform that enables developers to host websites and web services that deploy instantly, scale automatically, and require no supervision.
-
-# Features
-
-## Special Features
-* All Data is live fetched and updated improving user experience.
+* For creating Back-end, we used **Firebase**. For the database, we used Google Firestore. We created a very flexible and versatile foundation for our codebase, so that in the future its functionality could be easily extended and new agents could be easily added to it.
+* For the hosting we used **Vercel** which is a cloud platform that enables developers to host websites and web services that deploy instantly, scale automatically, and require no supervision.
+ 
+## Features
+ 
+* All Data is live-fetched and updated improving user experience.
 * This is a single-page website with no refresh on page change enhancing page load speed.
-* Personalized background UI of student's respective hostel on Signup, Student Dashboard and Profile page implementing personalization.
-* Strict security rules with proper feedback messages using react-toastify.
-* Responsive website with accessibility features.
-* Implement chat with HNBGU - Helpdesk for any queries
-* If officers 1 and 2 are not able to resolve this within 7 days, the complaint request will be promoted automatically to the next officer.
-* Officer can send out new Notification / Circullars which is shown on Home Page.
-
-## Data Table Used
-* It is used to display data in the form of table.
-* Easily sort your rows based on one or several criteria.
-* Easily filter your rows based on one or several criteria using Search Field.
-* Easily paginate your rows and only fetch what you need.
-* Easily export the rows in various file formats such as CSV, Excel, or PDF.
-* Quick peek of issue without have to open info dialog box.
-
-## Student Dashboard
-* Student can Raise a New Complaing by entering 'Complaint Type' (electricity, cleanliness, mess, etc) and 'Complaint Description'.
-* Student can see 'My Complaints' section with all complain lodged by him/her in Data Table.
-* Info icon open dialog box for additional information like Issued To, Remarks etc.
-
-## Officer Dashboard
-* Features same UI for three different officer - Caretaker, Warden, Chied Warden.
-* Data Table contains complaints issue to them only.
-* Info icon open dialog box including following features-
-    * Officer can set status of complaint as - Resolved, Pending, Declined.
-    * Caretaker can esclate complaint to Warden and Warden can esclate complaint to Chief Warden.
-    * Officer can add remarks for each complaints with additional information.
-* Officer can add / delete Notification / Circulars from dashboard which is shown at Home Page. 
-
-## Admin Dashboard
-* Admin Data Table features all account details.
-* Admin can change any account type to - Student, Caretaker, Warden, Chief Warden, Admin.
-
-## All Complaints
-* Every visitor is able to see all complaints.
-* User can filter complains accordint to Resolved, Pending, Declined.
-* All Data Talbe features available.
-* Info icon open dialog box for additional information with remarks from Officer.
-
-## Miscellaneous Pages
-
-### Home Page
-* It is the home page of our website with basic information.
-* It features Notification / Circulars section with latest updates from Officers.
-
-### Hostels
-* It has information about various hostel available at HNBGU.
-* Visitor can click on particular hostel to get details about it.
-
-### Contact Us
-* It contains information regarding contacts of HNBGU Hostels Officers.
-
-
-# Future Work
-* New Notice / Circullars section posted by Officers can be displayed at home page.
-* Hostel admission process can be implemented.
-* We can add feature to allocate room using website and verify students along with their documents using it.
-* Fee Payment geteway can be implemented.
-* Email verification, only particular college email id allowed security can be added.
-* Website can be extended with new images, more hostels and more features.
-
+* Matches are live and asynchronous also, the user can continue matches and donesn't need the opponent to be present at the same moment.
+* Relevant messages to the user for all edge cases.
+ 
+## Future Work
+* User login/registration using Email / Password, social logins like Facebook, Github, etc.
+* Themes for more personalization.
+* UI for desktop screens.
+* Add friend, Live chat, and Emoji features.
+ 
 
 # Gallery
 
-|||
-|:-------------------------:|:-------------------------:|
-|<img width="1604" alt="Home Page" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Homepage-1.png">  Home Page |  <img width="1604" alt="Home Page" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Homepage-2.png"> Home Page |
-|<img width="1604" alt="Hostel Page" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Hostel.png"> Hostel Page|<img width="1604" alt="Single Hostel Info" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Hostel-single.png"> Single Hostel Info |
- <img width="1604" alt="Contact Us" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Contactus.png">Contact Us|<img width="1604" alt="All Complaints" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/AllComplaints.png"> All Complaints |
-|<img width="1604" alt="All Complainta (info dialog box)" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/AllComplaints-info.png"> All Complaints (info dialog box) |  <img width="1604" alt="Signin Page" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Signin.png"> Signin Page|
-<img width="1604" alt="Signup Page" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Signup.png"> Signup Page| <img width="1604" alt="Profile Page" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Profile.png"> Profile Page |
-<img width="1604" alt="Student Dashboard (Register Complaint)" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Student-1.png"> Student Dashboard (Register Complaint) | <img width="1604" alt="Student Dashboard (My Complaints)" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Student-2.png"> Student Dashboard (My Complaints)|
-<img width="1604" alt="Student Dashboard (info dialog box)" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Student-info.png"> Student Dashboard (info dialog box) | <img width="1604" alt="Officer Dashboard" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Officer.png"> Officer Dashboard |
-<img width="1604" alt="Officer Dashboard (info dialog box)" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Officer-info.png"> Officer Dashboard (info dialog box)|<img width="1604" alt="Officer Dashboard Notification Panel" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Officer-notification.png"> Officer Dashboard Notification Panel | 
-<img width="1604" alt="Admin Dashboard" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Admin.png"> Admin Dashboard | <img width="1604" alt="Admin Dashboard (info dialog box)" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Admin-info.png"> Admin Dashboard (info dialog box) |
-
+|                                                                                                                                                                 |                                                                                                                                                                             |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|     <img width="1604" alt="Home Page" src="https://raw.githubusercontent.com/VisheshVGR/tic-tac-toe-reactjs-firebase/main/Gallery/HomePage.png">  Home Page     |  <img width="1604" alt="Recent Games Page" src="https://raw.githubusercontent.com/VisheshVGR/tic-tac-toe-reactjs-firebase/main/Gallery/RecentGames.png"> Recent Games Page  |
+| <img width="1604" alt="Profile Page" src="https://raw.githubusercontent.com/VisheshVGR/tic-tac-toe-reactjs-firebase/main/Gallery/ProfilePage.png"> Profile Page | <img width="1604" alt="Login Using Google" src="https://raw.githubusercontent.com/VisheshVGR/tic-tac-toe-reactjs-firebase/main/Gallery/LoginGoogle.png"> Login Using Google |
+|        <img width="1604" alt="My Turn" src="https://raw.githubusercontent.com/VisheshVGR/tic-tac-toe-reactjs-firebase/main/Gallery/MyTurn.png"> My Turn         |     <img width="1604" alt="Opponent Turn" src="https://raw.githubusercontent.com/VisheshVGR/tic-tac-toe-reactjs-firebase/main/Gallery/OpponentTurn.png"> Opponent Turn      |
+|           <img width="1604" alt="I Won" src="https://raw.githubusercontent.com/VisheshVGR/tic-tac-toe-reactjs-firebase/main/Gallery/IWon.png"> I Won            |       <img width="1604" alt="Opponent Won" src="https://raw.githubusercontent.com/VisheshVGR/tic-tac-toe-reactjs-firebase/main/Gallery/OpponentWon.png"> Opponent Won       |
+|     <img width="1604" alt="It's a Draw" src="https://raw.githubusercontent.com/VisheshVGR/tic-tac-toe-reactjs-firebase/main/Gallery/draw.png"> It's a Draw      |            <img width="1604" alt="New Match" src="https://raw.githubusercontent.com/VisheshVGR/tic-tac-toe-reactjs-firebase/main/Gallery/NewGame.png"> New Match            |
 
 # Database Schema
-* Users Schema
-<img height="500px" alt="Users Schema" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/db-users.png"> 
-
-* Complaints Schema
-<img width="1604" alt="Complaints Schema" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/db-complaints.png">
+<img height="500px" alt="Database Schema" src="https://raw.githubusercontent.com/VisheshVGR/tic-tac-toe-reactjs-firebase/main/Gallery/DB_Schema.png"> 
